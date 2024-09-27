@@ -118,7 +118,8 @@ type (
 	}
 )
 
-var causalConsistencyCache map[string]neo4j.Bookmarks
+// 初始化map by guilin 2024-9-27
+var causalConsistencyCache = make(map[string]neo4j.Bookmarks)
 
 func WithCausalConsistency(when func(ctx context.Context) string) Config {
 	return func(d *driver) {
